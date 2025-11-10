@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mongo1:
+    image: mongo:7
+    container_name: mongo1
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    volumes:
+      - mongo1_data:/data/db
+
+  mongo2:
+    image: mongo:7
+    container_name: mongo2
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    volumes:
+      - mongo2_data:/data/db
+
+  mongo3:
+    image: mongo:7
+    container_name: mongo3
+    restart: unless-stopped
+    ports:
+      - "27019:27017"
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    volumes:
+      - mongo3_data:/data/db
+
+  mongo-init:
+    image: mongo:7
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    entrypoint: ["/bin/sh", "-c", "until mongosh --host mongo1 --eval 'db.adminCommand(\"ping\")' >/dev/null 2>&1; do echo waiting for mongo1; sleep 1; done; mongosh --host mongo1 /scripts/init-replica.js || true"]
+    volumes:
+      - ./init-replica.js:/scripts/init-replica.js:ro
+
+volumes:
+  mongo1_data:
+  mongo2_data:
+  mongo3_data:
