@@ -1,8 +1,10 @@
-🧩 MongoTest
+#🧩 MongoTest
+Dự án này minh họa hai mô hình hoạt động quan trọng trong MongoDB, được triển khai bằng Docker Compose:
+- Replication: Mô phỏng hệ thống nhiều node sao lưu dữ liệu để đảm bảo luôn sẵn sàng.
+- Sharding: Mô phỏng hệ thống chia nhỏ dữ liệu trên nhiều máy chủ để tăng khả năng mở rộng.
 
-Hướng dẫn tạo và khởi chạy MongoDB Replica Set đơn giản bằng Docker Compose.
-
-⚙️ 1. Tạo file docker-compose.yml
+## Hướng dẫn tạo và khởi chạy MongoDB Replica Set đơn giản bằng Docker Compose.
+1. Tạo file docker-compose.yml
 
 Tạo file docker-compose.yml trong thư mục dự án, sau đó mở Terminal tại thư mục đó và chạy:
 
