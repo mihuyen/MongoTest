@@ -103,9 +103,11 @@ Bước 1: Khởi động Sharding Cluster
 ```bash
 # Dừng replica set cluster trước (nếu đang chạy)
 docker compose down
+```
 <img width="726" height="298" alt="image" src="https://github.com/user-attachments/assets/3688605b-f7f2-4a9b-91a1-2d8a6b5155c0" />
 
-# Khởi động sharding cluster
+Khởi động sharding cluster
+```bash
 docker compose -f docker-compose-sharding.yml up -d
 ```
 <img width="737" height="789" alt="image" src="https://github.com/user-attachments/assets/c1e8d9c1-259e-49af-be0d-27853fd4fc0e" />
@@ -116,8 +118,9 @@ Bước 2: Xác minh Cluster Status
 ```bash
 # Kết nối vào mongos router
 docker exec -it mongos1 mongosh
+```
 <img width="725" height="196" alt="image" src="https://github.com/user-attachments/assets/5cf65563-f8f1-4991-a3f4-9e214b152fcf" />
-
+```bash
 # Trong mongosh - kiểm tra shards
 sh.status()
 ```
@@ -158,5 +161,6 @@ db.adminCommand("getShardDistribution")
 db.products.getShardDistribution()
 db.orders.getShardDistribution()
 ```
+
 
 
