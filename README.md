@@ -1,4 +1,4 @@
-#MongoTest
+# MongoTest
 Dự án này minh họa hai mô hình hoạt động quan trọng trong MongoDB, được triển khai bằng Docker Compose:
 - Replication: Mô phỏng hệ thống nhiều node sao lưu dữ liệu để đảm bảo luôn sẵn sàng.
 - Sharding: Mô phỏng hệ thống chia nhỏ dữ liệu trên nhiều máy chủ để tăng khả năng mở rộng.
