@@ -12,8 +12,6 @@ Mở Terminal tại thư mục dự án và chạy:
 ```bash
 docker compose up -d
 ```
-
-**Kết quả khi khởi động thành công:**
 <img width="716" height="81" alt="image" src="https://github.com/user-attachments/assets/cf1d2025-3336-4125-ae16-1071834465b1" /> </p>
 
 ### Bước 2: Xác minh Replica Set
@@ -120,6 +118,7 @@ Bước 2: Xác minh Cluster Status
 docker exec -it mongos1 mongosh
 ```
 <img width="725" height="196" alt="image" src="https://github.com/user-attachments/assets/5cf65563-f8f1-4991-a3f4-9e214b152fcf" />
+
 ```bash
 # Trong mongosh - kiểm tra shards
 sh.status()
@@ -161,6 +160,7 @@ db.adminCommand("getShardDistribution")
 db.products.getShardDistribution()
 db.orders.getShardDistribution()
 ```
+
 
 
 
